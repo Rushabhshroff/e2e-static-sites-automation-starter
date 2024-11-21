@@ -22,6 +22,7 @@ describe(`${new URL(website).host}`, () => {
     test(`check the URL: ${website}`, async () => {
         // Here you can define the actual test for each URL
         await driver.get(website);
+        await driver.wait(until.elementLocated(By.id("onetrust-accept-btn-handler"))).click()
         await slowScrollToBottom(driver);
         const title = await driver.getTitle();
         expect(title.length).toBeGreaterThan(0);
